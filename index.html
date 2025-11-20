@@ -3,9 +3,358 @@
 <head>
   <meta charset="UTF-8" />
   <title>Projects – Jignasha Mehta</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f4f5f7;
+      --card-bg: #ffffff;
+      --accent: #0366d6;
+      --text-main: #1f2933;
+      --text-muted: #6b7280;
+      --border-soft: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1.75rem 1.25rem 3rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.25rem;
+    }
+
+    .brand {
+      font-weight: 650;
+      font-size: 1rem;
+    }
+
+    .brand span {
+      font-weight: 400;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-left: 0.3rem;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      background: var(--card-bg);
+      border: 1px solid var(--border-soft);
+      border-radius: 16px;
+      padding: 1.9rem 1.7rem;
+      margin-bottom: 2rem;
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-title {
+      font-size: 1.9rem;
+      font-weight: 650;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-sub {
+      color: var(--text-muted);
+      max-width: 36rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .stack-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+
+    .stack-pill {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #111827;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.75rem;
+      margin-top: 1.6rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .section-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .project-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      padding: 1.25rem 1.15rem;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: flex-start;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .project-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      margin-bottom: 0.45rem;
+    }
+
+    .project-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    .project-links a {
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+      margin-right: 0.8rem;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (min-width: 800px) {
+      .hero {
+        grid-template-columns: 2fr 1.4fr;
+        align-items: center;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to my Projects</h1>
-  <p>More 🔥 content coming soon.</p>
+  <div class="page">
+    <header>
+      <div class="brand">
+        Projects · Jignasha
+        <span>Architecture · AI · Systems</span>
+      </div>
+      <nav>
+        <a href="#featured">Featured</a>
+        <a href="#all-projects">All projects</a>
+        <a href="https://blogs.jignashamehta.com">Blog</a>
+      </nav>
+    </header>
+
+    <!-- Featured / latest project -->
+    <section class="hero" id="featured">
+      <div>
+        <div class="hero-kicker">Latest build</div>
+        <h1 class="hero-title"> Personal portfolio on AWS + Cloudflare</h1>
+        <p class="hero-sub">
+          Static React site deployed on S3 with CloudFront and Cloudflare in front, 
+          using HTTPS, caching, and clean CI from GitHub.
+        </p>
+        <div class="hero-meta">
+          Last updated: <strong>Feb 2025</strong> · Focused on real-world cloud architecture and developer experience.
+        </div>
+      </div>
+      <div>
+        <div class="stack-row">
+          <span class="stack-pill">AWS S3 · CloudFront</span>
+          <span class="stack-pill">Cloudflare</span>
+          <span class="stack-pill">React · Vite</span>
+          <span class="stack-pill">CI/CD</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- All projects grid -->
+    <section id="all-projects">
+      <div class="section-header">
+        <div class="section-title">Selected projects</div>
+        <div class="section-note">Newest first · high-signal only</div>
+      </div>
+
+      <div class="project-grid">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <div class="project-header">
+            <div>
+              <h2 class="project-title"> AI-powered requirements assistant</h2>
+              <div class="project-label">Architecture · AI · C#</div>
+            </div>
+          </div>
+          <p class="project-desc">
+            A lightweight internal tool that turns fuzzy business requirements into
+            structured user stories and acceptance criteria, ready for dev teams.
+          </p>
+          <div class="project-meta">
+            Role: Solution Architect · Highlights: prompt design, system boundaries, scalability.
+          </div>
+          <div class="badge-row">
+            <span class="badge">C#</span>
+            <span class="badge">OpenAI API</span>
+            <span class="badge">Azure / AWS</span>
+          </div>
+          <div class="project-links">
+            <a href="#">Case study</a>
+            <a href="#">GitHub</a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div class="project-header">
+            <div>
+              <h2 class="project-title"> Event-driven order processing system</h2>
+              <div class="project-label">Backend · Reliability</div>
+            </div>
+          </div>
+          <p class="project-desc">
+            Microservice-style pipeline for handling high-volume orders with retries, 
+            idempotency, and monitoring built in from day one.
+          </p>
+          <div class="project-meta">
+            Role: Tech lead · Designed for observability, failure modes, and future scaling.
+          </div>
+          <div class="badge-row">
+            <span class="badge">C# / .NET</span>
+            <span class="badge">SQL / PostgreSQL</span>
+            <span class="badge">Messaging</span>
+          </div>
+          <div class="project-links">
+            <a href="#">Architecture notes</a>
+            <a href="#">GitHub</a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <div class="project-header">
+            <div>
+              <h2 class="project-title"> Learning lab: C# & memory internals</h2>
+              <div class="project-label">Deep dive · Education</div>
+            </div>
+          </div>
+          <p class="project-desc">
+            A series of tiny experiments exploring stack vs heap, allocations, and CPU/cache
+            behavior, built to explain systems thinking to dev teams.
+          </p>
+          <div class="project-meta">
+            Role: Author & mentor · Used for internal training sessions.
+          </div>
+          <div class="badge-row">
+            <span class="badge">C#</span>
+            <span class="badge">Performance</span>
+            <span class="badge">Developer education</span>
+          </div>
+          <div class="project-links">
+            <a href="#">Read the series</a>
+          </div>
+        </article>
+
+        <!-- Duplicate more project-card blocks as needed -->
+      </div>
+    </section>
+
+    <footer>
+      Designed to stay out of the way so the work can speak. ©
+      <span id="year"></span> Jignasha Mehta
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
